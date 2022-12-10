@@ -2,7 +2,8 @@
 
 ## What does this app do ?
 
-This application makes it possible to compare stocks with each other (thanks to data normalization) as well as their evolution over time, and is made for all investors wishing to follow their stocks, or stocks they plan to buy.
+This application makes it possible to compare stocks with each other (thanks to data normalization) as well as their evolution over time 
+It is also equipped with charts used in trading, to buy at the right time. I made it for all investors wishing to follow their stocks, or stocks they plan to buy.
 
 ## How to use it ?
 
