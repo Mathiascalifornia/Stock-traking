@@ -1,3 +1,5 @@
+/!\ Since december 16 , there is a problem with the yahoo API , so the app won't work. Looking for a fix right now
+
 # Stock Tracking
 
 ## What does this app do ?
