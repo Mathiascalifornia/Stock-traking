@@ -1,5 +1,3 @@
-/!\ Since december 16 , there is a problem with the yahoo API , so the app won't work. Looking for a fix right now
-
 # Stock Tracking
 
 ## What does this app do ?
@@ -9,7 +7,8 @@ It is also equipped with charts used in trading, to buy at the right time. I mad
 
 ## How to use it ?
 
-Unzip the Stock-Tracking folders (all at once) inside a new folder. Inside you will find a lot of files. For the proper functioning of the app, do not delete or move any. Look for the executable file with the same name as the folder (the one with an icon), and create a shortcut (for convenience). Put the shortcut where you want , then click on it. A terminal and a graphical interface will open. Follow the instructions of the graphical interface (Type the tickers that interest you, separated by a single space), then click on the Start button. After a few seconds and depending on your internet connection, a dashboard will appear. On this dashboard you will see different interactive data visualizations. Note that the SP500 index is still present, even if you didn't type it into the GUI. On the first figure, you can click on the legend to choose the stock(s) you want to compare. You can also change the time horizon from the drop-down menu on the left. By scrolling down the page you will find a dropdown menu, in order to choose the stock, then a small table indicating the variations in the value of the stock in percentages, as well as three technical figures (RSI, trading volume, bollinger bands). All these figures are interactive and update according to what you have chosen in the drop-down menu.
+Download the whole project as a zip file (Code ; Download zip)
+Unzip the Stock-Tracking folders (all at once) in the newly created folder. Inside you will find a lot of files. For the proper functioning of the app, do not delete or move any. Look for the executable file with the same name as the folder (the one with an icon), and create a shortcut (for convenience). Put the shortcut where you want , then click on it. A terminal and a graphical interface will open. Follow the instructions of the graphical interface (Type the tickers that interest you, separated by a single space), then click on the Start button. After a few seconds and depending on your internet connection, a dashboard will appear. On this dashboard you will see different interactive data visualizations. Note that the SP500 index is still present, even if you didn't type it into the GUI. On the first figure, you can click on the legend to choose the stock(s) you want to compare. You can also change the time horizon from the drop-down menu on the left. By scrolling down the page you will find a dropdown menu, in order to choose the stock, then a small table indicating the variations in the value of the stock in percentages, as well as three technical figures (RSI, trading volume, bollinger bands). All these figures are interactive and update according to what you have chosen in the drop-down menu.
 
 ## What to do in case of trouble ?
 
