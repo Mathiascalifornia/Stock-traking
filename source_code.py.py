@@ -111,57 +111,93 @@ def main(tickers):
 
 
     ############### Some functions ###############
+    def prev_diff(n  , current , df):
+            '''Return previous and diff'''
+            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(n))]['Adj Close'])
+            diff = np.round(100*((current - previous) / previous),2)
+            return previous , diff
+
     def get_pct_change(df):
-        ''' Get the change in percentage for differents time periods'''
-            # Week
+
+       
         try:
-            current = float(df.iloc[-1]['Adj Close'])
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(7))]['Adj Close'])
-            week_diff = np.round(100*((current - previous) / previous),2)
+         # Week
+          current = float(df.iloc[-1]['Adj Close'])
+          previous , week_diff = prev_diff(7 , current , df)
         except:
-            current = float(df.iloc[-1]['Adj Close'])
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(9))]['Adj Close'])
-            week_diff = np.round(100*((current - previous) / previous),2)
-        try:
-            # Two weeks
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(14))]['Adj Close'])
-            twoweek_diff = np.round(100*((current - previous) / previous),2)
-        except:
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(16))]['Adj Close'])
-            twoweek_diff = np.round(100*((current - previous) / previous),2)         
+            try:
+                previous , week_diff = prev_diff(5, current , df)
+            except:
+                previous , week_diff = prev_diff(9, current , df)
+
+
 
         try:
-            # Six month
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(6*30))]['Adj Close'])
-            sixmonth_diff = np.round(100*((current - previous) / previous),2)
+          # Two weeks
+          previous , twoweek_diff = prev_diff(14, current , df)
         except:
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(6*30+2))]['Adj Close'])
-            sixmonth_diff = np.round(100*((current - previous) / previous),2)          
+            try:
+                previous , twoweek_diff = prev_diff(10, current , df)    
+            except:
+                previous , twoweek_diff = prev_diff(16, current , df)  
 
-            # One year
-        try:
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(365))]['Adj Close'])
-            oneyear_diff = np.round(100*((current - previous) / previous), 2)
-        except:
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(367))]['Adj Close'])
-            oneyear_diff = np.round(100*((current - previous) / previous), 2)         
 
         try:
-            # Five years
-
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(5*365))]['Adj Close'])
-            fiveyear_diff = np.round(100*((current - previous) / previous), 2)
-
+          # Six month
+          previous , sixmonth_diff = prev_diff(180, current , df)
         except:
-            previous = float(df[df.index == str(df.index[-1] - dt.timedelta(5*365+2))]['Adj Close'])
-            fiveyear_diff = np.round(100*((current - previous) / previous), 2)
+            try:
+                previous , sixmonth_diff = prev_diff(6*19, current , df)
+            except:
+                try:
+                    previous , sixmonth_diff = prev_diff(6*20, current , df)
+                except:
+                    try:
+                        previous , sixmonth_diff = prev_diff(6*21, current , df)
+                    except:
+                        previous , sixmonth_diff = prev_diff(6*22, current , df)
 
-            # Overall
-            previous = float(df.iloc[0]['Adj Close'])
-            overall_diff = np.round(100*((current - previous) / previous), 2)
-            
-            # Return the dictionnary with all the diff
-            return {'One week : ' : week_diff , 'Two weeks : ' : twoweek_diff , 'Six months : ' : sixmonth_diff , 'One year : ' : oneyear_diff , 'Five years : ' : fiveyear_diff , 'Overall : ' : overall_diff}
+
+        try:
+          # One year
+          previous , oneyear_diff = prev_diff(365, current , df)
+        except:
+            try:
+                previous , oneyear_diff = prev_diff(252, current , df)
+            except:
+                try:
+                    previous , oneyear_diff = prev_diff(251, current , df)
+                except:
+                    try:
+                        previous , oneyear_diff = prev_diff(250, current , df)
+                    except:
+                        previous , oneyear_diff = prev_diff(249, current , df)
+ 
+
+        try:
+          # Five years
+          previous , fiveyear_diff = prev_diff(365*5, current , df)
+        except:
+            try:
+                previous , fiveyear_diff = prev_diff(252*5, current , df)
+            except:
+                try:
+                    previous , fiveyear_diff = prev_diff(251*5, current , df)
+                except:
+                    try:
+                        previous , fiveyear_diff = prev_diff(250*5, current , df)
+                    except:
+                        previous , fiveyear_diff = prev_diff(249*5, current , df)
+
+        # Overall
+        previous = float(df.iloc[0]['Adj Close'])
+        overall_diff = np.round(100*((current - previous) / previous), 2)
+        
+        # Return the dictionnary with all the diff
+        return {'One week : ' : week_diff , 'Two weeks : ' : twoweek_diff , 'Six months : ' : sixmonth_diff , 'One year : ' : oneyear_diff , 'Five years : ' : fiveyear_diff , 'Overall : ' : overall_diff}
+
+
+
 
     # Plot the RSI
     def plot_rsi(df):
