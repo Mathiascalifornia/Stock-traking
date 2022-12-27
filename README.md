@@ -1,3 +1,5 @@
+# /!\ Currently in maintenance. Don't download it now
+
 # Stock Tracking
 
 ## What does this app do ?
